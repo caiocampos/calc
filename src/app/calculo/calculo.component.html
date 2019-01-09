@@ -1,0 +1,21 @@
+<div class="calc">
+  <div class="result title">Valor Atual:</div>
+  <div class="result">{{result}}</div>
+  <label>
+    <div class="tooltip">Valor para o cálculo:
+      <span class="tooltiptext">Termo da operação</span>
+    </div>
+    <input #factor />
+  </label>
+  <div>
+    <button (click)="sum(factor.value);">
+      Somar
+    </button>
+    <button (click)="mul(factor.value);">
+      Multiplicar
+    </button>
+    <button (click)="div(factor.value);">
+      Dividir
+    </button>
+  </div>
+</div>
