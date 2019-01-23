@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./calculo.component.css']
 })
 export class CalculoComponent implements OnInit {
-  private result: bigint = BigInt(1);
+  result: bigint = BigInt(1);
 
   constructor() { }
 
