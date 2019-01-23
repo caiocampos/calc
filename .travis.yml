@@ -19,6 +19,6 @@ deploy:
   provider: pages
   skip_cleanup: true
   github-token: $GITHUB_TOKEN
-  local_dir: dist/tabs
+  local_dir: dist/calc
   on:
     branch: master
