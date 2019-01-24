@@ -6,22 +6,30 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./calculo.component.css']
 })
 export class CalculoComponent implements OnInit {
-  result: bigint = BigInt(1);
+  result;
+
+  hasBigInt = true;
 
   constructor() { }
 
   ngOnInit() {
+    try {
+      this.result = BigInt(1);
+    } catch {
+      this.result = 1;
+      this.hasBigInt = false;
+    }
   }
 
   sum(val): void {
-    this.result += BigInt(val);
+    this.result += this.hasBigInt ? BigInt(val) : val;
   }
 
   mul(val): void {
-    this.result *= BigInt(val);
+    this.result *= this.hasBigInt ? BigInt(val) : val;
   }
 
   div(val): void {
-    this.result /= BigInt(val);
+    this.result /= this.hasBigInt ? BigInt(val) : val;
   }
 }

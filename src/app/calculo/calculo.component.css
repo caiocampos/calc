@@ -1,47 +1,57 @@
 * {
-  text-align: center;
-  padding: 3px;
+	text-align: center;
+	padding: 3px;
 }
 
 .calc {
-  border: 1px solid lightgray;
-  border-radius: 5px;
+	border: 1px solid lightgray;
+	border-radius: 5px;
 }
 
 .result {
-  font-weight: bold;
+	font-weight: bold;
 }
 
 .title {
-  font-size: large;
+	font-size: large;
 }
 
 input {
-  text-align: left;
+	text-align: left;
 }
 
 .tooltip {
-  position: relative;
-  display: inline-block;
-  color: darkblue;
+	position: relative;
+	display: inline-block;
+	color: darkblue;
 }
 
 .tooltip .tooltiptext {
-  visibility: hidden;
-  background-color: lightyellow;
-  color: black;
-  text-align: center;
-  border: 1px dotted lightgreen;
-  border-radius: 6px;
-  padding: 5px 0;
-  position: absolute;
-  z-index: 1;
-  width: 140px;
-  bottom: 100%;
-  left: 50%;
-  margin-left: -70px;
+	visibility: hidden;
+	background-color: lightyellow;
+	color: black;
+	text-align: center;
+	border: 1px dotted lightgreen;
+	border-radius: 6px;
+	padding: 5px 0;
+	position: absolute;
+	z-index: 1;
+	width: 140px;
+	bottom: 100%;
+	left: 50%;
+	margin-left: -70px;
 }
 
 .tooltip:hover .tooltiptext {
-  visibility: visible;
+	visibility: visible;
+}
+
+.red-warning {
+	border: 0px solid red;
+	border-radius: 16px;
+	background-color: red;
+	width: fit-content;
+	color: white;
+	font-weight: bold;
+	padding: 5px;
 }
