@@ -1,5 +1,5 @@
 <div class="calc">
-  <div *ngIf="!hasBigInt"><span class="red-warning">BigInt indisponível</span></div>
+  <div *ngIf="!hasBigInt"><span class="red-warning">BigInt indisponível!</span></div>
   <div class="result title">Valor Atual:</div>
   <div class="result">{{result}}</div>
   <label>
@@ -20,3 +20,4 @@
     </button>
   </div>
 </div>
+<div *ngIf="isInvalid"><span class="red-warning">Valor inválido!!</span></div>

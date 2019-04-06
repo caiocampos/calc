@@ -9,6 +9,7 @@ export class CalculoComponent implements OnInit {
   result;
 
   hasBigInt = true;
+  isInvalid = false;
 
   constructor() { }
 
@@ -22,14 +23,73 @@ export class CalculoComponent implements OnInit {
   }
 
   sum(val): void {
-    this.result += this.hasBigInt ? BigInt(val) : val;
+    val = this.parse(val);
+    if (this.isNaN(val)) {
+      this.isInvalid = true;
+      return;
+    }
+    this.isInvalid = false;
+    this.result = this.parse0(this.result) + val;
   }
 
   mul(val): void {
-    this.result *= this.hasBigInt ? BigInt(val) : val;
+    val = this.parse(val);
+    this.result = this.parse0(this.result);
+    if (this.isNaN(val) || (this.isInfinity(this.result) && this.equal(val, 0))) {
+      this.isInvalid = true;
+      return;
+    }
+    this.isInvalid = false;
+    this.result = this.result * val;
   }
 
   div(val): void {
-    this.result /= this.hasBigInt ? BigInt(val) : val;
+    val = this.parse0(val);
+    if (this.equal(val, 0)) {
+      this.isInvalid = true;
+    } else {
+      this.isInvalid = false;
+      this.result = this.parse0(this.result) / val;
+    }
+  }
+
+  private parse(val): any {
+    try {
+      return this.hasBigInt ? BigInt(val) : Number(val);
+    } catch {
+      return NaN;
+    }
+  }
+
+  private parse2(a, b): any {
+    return this.parse(a) || this.parse0(b);
+  }
+
+  private parse0(val): any {
+    try {
+      return this.hasBigInt ? (BigInt(val) || BigInt(0)) : (Number(val) || 0);
+    } catch {
+      return this.hasBigInt ? BigInt(0) : 0;
+    }
+  }
+
+  private equal(a, b): boolean {
+    try {
+      return this.hasBigInt ? (BigInt(a) === BigInt(b)) : (Number(a) === Number(b));
+    } catch {
+      return false;
+    }
+  }
+
+  private isInfinity(val): boolean {
+    return this.is(val, Infinity);
+  }
+
+  private isNaN(val): boolean {
+    return this.is(val, NaN);
+  }
+
+  private is(a, b): boolean {
+    return Object.is(a, b);
   }
 }
