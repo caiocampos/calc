@@ -8,6 +8,11 @@
 	border-radius: 5px;
 }
 
+.elements {
+	border: 1px solid lightgray;
+	min-height: 1em;
+}
+
 .result {
 	font-weight: bold;
 }

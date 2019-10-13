@@ -1,4 +1,7 @@
 <div class="calc">
+  <div>
+    <div class="elements" *ngFor="let calc of calcs">{{calc}}</div>
+  </div>
   <div *ngIf="!hasBigInt"><span class="red-warning">BigInt indisponível!</span></div>
   <div class="result title">Valor Atual:</div>
   <div class="result">{{result}}</div>

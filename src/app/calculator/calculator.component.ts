@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-calculo',
-  templateUrl: './calculo.component.html',
-  styleUrls: ['./calculo.component.css']
+  selector: 'app-calculator',
+  templateUrl: './calculator.component.html',
+  styleUrls: ['./calculator.component.css']
 })
-export class CalculoComponent implements OnInit {
+export class CalculatorComponent implements OnInit {
   result;
+  calcs = ['', '', '', '', '', '', '', '', '', ''];
 
   hasBigInt = true;
   isInvalid = false;
@@ -22,6 +23,11 @@ export class CalculoComponent implements OnInit {
     }
   }
 
+  pushCalc(a, b, result, operator): void {
+    this.calcs.shift();
+    this.calcs.push(`${a} ${operator} ${b} = ${result}`);
+  }
+
   sum(val): void {
     val = this.parse(val);
     if (this.isNaN(val)) {
@@ -29,18 +35,21 @@ export class CalculoComponent implements OnInit {
       return;
     }
     this.isInvalid = false;
-    this.result = this.parse0(this.result) + val;
+    const old = this.parse0(this.result);
+    this.result = old + val;
+    this.pushCalc(old, val, this.result, '+');
   }
 
   mul(val): void {
     val = this.parse(val);
-    this.result = this.parse0(this.result);
-    if (this.isNaN(val) || (this.isInfinity(this.result) && this.equal(val, 0))) {
+    const old = this.parse0(this.result);
+    if (this.isNaN(val) || (this.isInfinity(old) && this.equal(val, 0))) {
       this.isInvalid = true;
       return;
     }
     this.isInvalid = false;
-    this.result = this.result * val;
+    this.result = old * val;
+    this.pushCalc(old, val, this.result, '*');
   }
 
   div(val): void {
@@ -49,7 +58,9 @@ export class CalculoComponent implements OnInit {
       this.isInvalid = true;
     } else {
       this.isInvalid = false;
-      this.result = this.parse0(this.result) / val;
+      const old = this.parse0(this.result);
+      this.result = old / val;
+      this.pushCalc(old, val, this.result, '/');
     }
   }
 

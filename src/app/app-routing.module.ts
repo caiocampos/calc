@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { CalculoComponent } from './calculo/calculo.component';
+import { CalculatorComponent } from './calculator/calculator.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/calculo', pathMatch: 'full' },
-  { path: 'calculo', component: CalculoComponent }
+  { path: '', redirectTo: '/calc', pathMatch: 'full' },
+  { path: 'calc', component: CalculatorComponent }
 ];
 
 @NgModule({
