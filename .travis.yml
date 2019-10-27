@@ -9,7 +9,7 @@ branches:
   - master
 
 before_install:
-  - echo -e "\n//npm.pkg.github.com/:_authToken=\${GITHUB_TOKEN}" > .npmrc
+  - echo -e "\n//npm.pkg.github.com/:_authToken=\${GITHUB_TOKEN}" >> .npmrc
 
 before_script:
   - npm install -g @angular/cli
