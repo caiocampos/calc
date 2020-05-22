@@ -17,6 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "aot": true,
             "outputPath": "dist/calc",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -53,6 +54,10 @@
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
                 }
               ]
             }
@@ -135,5 +140,8 @@
       }
     }
   },
-  "defaultProject": "calc"
+  "defaultProject": "calc",
+  "cli": {
+    "analytics": "171405a7-d6c7-4cf7-a280-038d976ac2b3"
+  }
 }
