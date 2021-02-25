@@ -21,7 +21,7 @@
     "@angular/router": "^11.0.2",
     "@caiocampos/links-buttons": "~0.0.9",
     "core-js": "^3.9.0",
-    "rxjs": "~6.6.3",
+    "rxjs": "~6.6.6",
     "tar": "^6.1.0",
     "tslib": "^2.1.0",
     "zone.js": "~0.10.2"
