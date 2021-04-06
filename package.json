@@ -23,7 +23,7 @@
     "core-js": "^3.10.0",
     "rxjs": "~6.6.7",
     "tar": "^6.1.0",
-    "tslib": "^2.1.0",
+    "tslib": "^2.2.0",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
