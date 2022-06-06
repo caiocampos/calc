@@ -118,7 +118,6 @@
       }
     }
   },
-  "defaultProject": "calc",
   "cli": {
     "analytics": "171405a7-d6c7-4cf7-a280-038d976ac2b3"
   }
