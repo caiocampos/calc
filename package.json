@@ -20,7 +20,7 @@
     "@angular/platform-browser": "^14.1.0",
     "@angular/router": "^14.1.0",
     "@caiocampos/links-buttons": "~0.0.11",
-    "core-js": "^3.24.0",
+    "core-js": "^3.24.1",
     "rxjs": "~7.5.6",
     "tar": "^6.1.6",
     "tslib": "^2.4.0",
